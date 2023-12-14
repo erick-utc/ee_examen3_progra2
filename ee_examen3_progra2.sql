@@ -43,8 +43,16 @@ GO
 CREATE PROCEDURE CONSULTAR_TODOS_FORMULARIO
 AS
 	BEGIN
-		SELECT formulario.NumeroEncuesta, formulario.NombreParticipante as Nombre, formulario.EdadNacimiento as Edad, formulario.CorreoElectronico as Correo, partidosPoliticos.IDPartido
+		SELECT formulario.NumeroEncuesta, formulario.NombreParticipante as Nombre, formulario.EdadNacimiento as Edad, formulario.CorreoElectronico as Correo, partidosPoliticos.Nombre as Partido
 		FROM formulario
 		INNER JOIN partidosPoliticos ON formulario.PartidoPolitico = partidosPoliticos.IDPartido
+	END
+GO
+
+CREATE PROCEDURE CONSULTAR_PARTIDOS
+AS
+	BEGIN
+		SELECT IDPartido, Nombre 
+		FROM partidosPoliticos
 	END
 GO
